@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
+const json = require("./package.json");
+const nextConfig = {
+  publicRuntimeConfig: {
+        version: json.version,
+    },
+};
 
 export default nextConfig;
